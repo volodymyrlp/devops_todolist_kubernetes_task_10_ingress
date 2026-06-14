@@ -17,11 +17,6 @@ kubectl apply -f .infrastructure/app/hpa.yml
 kubectl apply -f .infrastructure/app/deployment.yml
 kubectl rollout status deployment/todoapp -n todoapp --timeout=180s
 
-# Install Ingress Controller
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
-<<<<<<< HEAD
-# kubectl apply -f .infrastructure/ingress/ingress.yml
-=======
 kubectl wait --namespace ingress-nginx --for=condition=ready pod -l app.kubernetes.io/name=ingress-nginx --timeout=180s
 kubectl apply -f .infrastructure/ingress/ingress.yml
->>>>>>> 6fba361 (Solution)
